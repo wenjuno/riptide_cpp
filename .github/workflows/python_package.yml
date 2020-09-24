@@ -135,7 +135,12 @@ jobs:
           conda activate conda_build
           export BUILD_VERSION=$(python -c "from setuptools_scm import get_version; print(get_version(version_scheme='post-release'))")
           mkdir conda_pkgs_output
-          conda build conda_recipe --output-folder ./conda_pkgs_output
+          extra_cmd=""
+          if [ "$(uname -s)" == "Darwin" ]
+          then
+            extra_cmd="--no-test"
+          fi
+          conda build conda_recipe --output-folder ./conda_pkgs_output ${extra_cmd}
       - name: Publish artifacts
         uses: actions/upload-artifact@v2
         with:

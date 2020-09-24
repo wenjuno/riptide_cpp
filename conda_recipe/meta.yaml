@@ -21,7 +21,7 @@ requirements:
 
 test:
   imports:
-    riptide_cpp # [not osx]
+    riptide_cpp
 
 about:
   home: https://github.com/rtosholdings/riptide_cpp
