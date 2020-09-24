@@ -10,7 +10,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
+    - {{ compiler('cxx') }} # [not osx]
   host:
     - python {{ python }}
     - numpy {{ numpy }}
